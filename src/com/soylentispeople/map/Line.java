@@ -13,7 +13,7 @@ public class Line {
 
     public Line(Point p1, Point p2) {
         this.slope = (p2.y - p1.y)/(p2.x - p1.x);
-        this(, );
+        this.yIntercept = p1.y - slope * p1.x;
     }
 
     public Point intercept(Line line) {
@@ -21,6 +21,14 @@ public class Line {
         float yIntercept = xIntercept * slope + this.yIntercept;
 
         return new Point(xIntercept, yIntercept);
+    }
+
+    public float getSlope() {
+        return slope;
+    }
+
+    public float getyIntercept() {
+        return yIntercept;
     }
 
 }
