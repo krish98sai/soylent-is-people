@@ -8,18 +8,26 @@ import java.io.IOException;
 public class ConnectionReceiver implements Runnable{
     private final Socket [] sockets;
     private final ServerSocket serverSocket;
-    public ConnectionReceiver(Socket [] s, ServerSocket serverSocket) {
-        sockets = s;
+    private final ConnectionReceiverListener listener;
+
+    public ConnectionReceiver(Socket [] sockets, ServerSocket serverSocket, ConnectionReceiverListener listener) {
+        this.sockets = sockets;
         this.serverSocket = serverSocket;
+        this.listener = listener;
     }
 
     @Override
     public void run() {
+        System.out.println("Connection Receiver started");
         for (int i = 0; i < sockets.length; i++){
-            try {
-                sockets[i] = serverSocket.accept();
-            } catch (IOException e){
-                System.out.println("Connection Failed");
+            if (sockets[i] == null) {
+                try {
+                    System.out.println("Receiver waiting for connection");
+                    sockets[i] = serverSocket.accept();
+                    listener.connectionEstablished(i);
+                } catch (IOException e) {
+                    System.out.println("Connection Failed");
+                }
             }
         }
     }
