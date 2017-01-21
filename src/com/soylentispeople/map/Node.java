@@ -5,9 +5,17 @@ package com.soylentispeople.map;
  */
 public class Node {
 
-    private NodeWrapper[] connectedNodes;
+    private Node[] connectedNodes;
 
     public Node() {
 
+    }
+
+    public void setConnectedNodes(Node[] nodes) {
+        this.connectedNodes = nodes;
+    }
+
+    public Node[] getConnectedNodes() {
+        return connectedNodes;
     }
 }
