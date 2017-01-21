@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * Created by adity on 1/21/2017.
+ * Created by thatq on 1/21/2017.
  */
 public class ServerTestMain {
     public static void main(String[] args) throws IOException {
