@@ -8,6 +8,7 @@ public class ConnectionReceiver implements Runnable{
     public ConnectionReceiver(Socket [] s, ServerSocket serverSocket){
         for (int i = 0; i < s.length; i++){
             s[i] = serverSocket.accept();
+            //Hi
         }
     }
 }
