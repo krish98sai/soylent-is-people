@@ -10,7 +10,7 @@ import java.net.Socket;
 public class ServerTestMain {
     public static void main(String[] args) throws IOException {
         Socket[] sockets = new Socket[5];
-
+//
         new Thread(new ConnectionReceiver(sockets, new ServerSocket(24999), new ConnectionReceiverListener() {
             @Override
             public void connectionEstablished(int index) {
